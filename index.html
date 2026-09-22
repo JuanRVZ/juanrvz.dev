@@ -2,11 +2,68 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      try {
+        const theme = localStorage.getItem("portfolio-theme");
+        if (["light", "dark"].includes(theme))
+          document.documentElement.dataset.theme = theme;
+      } catch {}
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Juan Ramón Vaz León — Software Developer. Portfolio coming soon." />
+    <meta
+      name="description"
+      content="Juan Ramón Vaz León — Software Developer specializing in SAP ABAP Cloud, SAP BTP and backend development. Explore training projects, certifications and code."
+    />
     <meta name="theme-color" content="#101412" />
     <link rel="canonical" href="https://juanrvz.dev/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="juanrvz.dev" />
+    <meta
+      property="og:title"
+      content="Juan Ramón Vaz León | Software Developer"
+    />
+    <meta
+      property="og:description"
+      content="Software Developer | SAP ABAP Cloud & BTP | Backend | Python. Explore my work and SAP certifications."
+    />
+    <meta property="og:url" content="https://juanrvz.dev/" />
+    <meta property="og:image" content="https://juanrvz.dev/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Juan Ramón Vaz León — Software Developer — juanrvz.dev"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Juan Ramón Vaz León | Software Developer"
+    />
+    <meta
+      name="twitter:description"
+      content="Software Developer specializing in SAP ABAP Cloud, SAP BTP and backend development."
+    />
+    <meta name="twitter:image" content="https://juanrvz.dev/og-image.png" />
     <title>Juan Ramón Vaz León | Software Developer</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "url": "https://juanrvz.dev/",
+        "mainEntity": {
+          "@type": "Person",
+          "name": "Juan Ramón Vaz León",
+          "jobTitle": "Software Developer",
+          "url": "https://juanrvz.dev/",
+          "sameAs": [
+            "https://github.com/JuanRVZ",
+            "https://www.linkedin.com/in/juan-ram%C3%B3n-vaz-le%C3%B3n-788698185/"
+          ]
+        }
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

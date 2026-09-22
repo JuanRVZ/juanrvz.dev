@@ -1,0 +1,5 @@
+World land geometry: Natural Earth, 1:110m land (public domain).
+Source: https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_110m_land.geojson
+Natural Earth: https://www.naturalearthdata.com/about/terms-of-use/
+Projected to a local equirectangular SVG; Antarctica omitted for framing.
+Marker represents Seville city centre, not a personal address.
