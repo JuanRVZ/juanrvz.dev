@@ -12,7 +12,7 @@ export const profile = {
   location: "Seville, Spain",
   email: "juan@juanrvz.dev",
   linkedin:
-    "https://www.linkedin.com/in/juan-ram%C3%B3n-vaz-le%C3%B3n-788698185/",
+    "https://www.linkedin.com/in/juan-ramon-vaz-leon/",
   github: "https://github.com/JuanRVZ",
   cv: "",
 };
