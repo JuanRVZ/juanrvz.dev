@@ -18,9 +18,9 @@ function Arrow({ diagonal = false }) {
     </svg>
   );
 }
-function Link({ href, children, className = "" }) {
+function Link({ href, children, className = "", download }) {
   return (
-    <a href={href} className={className}>
+    <a href={href} className={className} download={download}>
       {children}
       <Arrow diagonal />
     </a>
@@ -221,7 +221,7 @@ export default function App() {
                 </a>
               )}
               {profile.cv ? (
-                <Link className="text-link" href={profile.cv}>
+                <Link className="text-link" href={profile.cv} download>
                   {t("Download CV")}
                 </Link>
               ) : (
@@ -419,6 +419,15 @@ export default function App() {
                   {t("Email me")}
                   <span className="contact-handle">{profile.email}</span>
                 </Link>
+              )}
+              {profile.phone && (
+                <a
+                  className="text-link"
+                  href={`tel:${profile.phone.replace(/\s/g, "")}`}
+                >
+                  {t("Phone")}
+                  <span className="contact-handle">{profile.phone}</span>
+                </a>
               )}
               {profile.linkedin && (
                 <Link href={profile.linkedin}>LinkedIn</Link>

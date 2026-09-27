@@ -1,6 +1,15 @@
 import * as content from "./content.js";
 
 const es = {
+  "/cv/juan-ramon-vaz-leon-en.pdf": "/cv/juan-ramon-vaz-leon-es.pdf",
+  "Services Assistant": "Auxiliar de servicios",
+  "Online Sales": "Venta online",
+  "Jan 2018 - Sep 2018": "Ene 2018 - Sep 2018",
+  Spanish: "Español",
+  English: "Inglés",
+  Native: "Nativo",
+  "B2 - Professional working proficiency": "B2 - Competencia profesional",
+  Phone: "Teléfono",
   "Software Developer": "Desarrollador de software",
   "Backend development experience, now focused on SAP ABAP Cloud and SAP BTP. Building on a background in web applications, integrations and systems administration.":
     "Experiencia en desarrollo backend, ahora centrado en SAP ABAP Cloud y SAP BTP. Con una base en aplicaciones web, integraciones y administración de sistemas.",

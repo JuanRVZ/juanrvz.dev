@@ -1,9 +1,11 @@
 import { build } from "vite";
+import { generateCVs } from "./generate-cv.mjs";
 import { createElement } from "react";
 import { renderToString } from "react-dom/server";
 import { readFile, writeFile, rm } from "node:fs/promises";
 
 // Static HTML for crawlers and visitors before JavaScript loads; no server required.
+await generateCVs();
 await build();
 try {
   await build({ build: { ssr: "App.jsx", outDir: ".prerender" } });

@@ -25,7 +25,8 @@ The build uses Vite for client assets and a temporary server bundle to render Re
 - `src/content.js`: confirmed personal content and optional links.
 - `App.jsx`: semantic sections, reusable cards, navigation and menu behavior.
 - `styles.css`: Tailwind import, design tokens, responsive layouts and reduced-motion support.
-- `scripts/build.mjs`: static prerender step using existing dependencies.
+- `scripts/build.mjs`: static prerender and automatic bilingual CV generation.
+- `scripts/generate-cv.mjs`: text-based PDF CVs generated from the same personal content.
 - `index.html`: canonical, English metadata, Open Graph, Twitter card and structured data.
 - `public/`: favicon, 1200 × 630 social card, robots.txt and sitemap.
 - `CONTENT.md`: content schemas and information still needed.
@@ -47,3 +48,5 @@ Domain and `www` redirect settings remain managed in Cloudflare. No deployment s
 ## Review
 
 Check the production preview at mobile, tablet and desktop widths. Verify the menu opens/closes, Escape returns focus, section links work, the keyboard skip link appears, and the page has no horizontal overflow. Verify email/GitHub links and real CV/credential links when supplied. Rebuild after content changes to refresh prerendered HTML.
+
+The “Download CV” link serves the generated English or Spanish PDF. `pdf-lib` is a development dependency used only during the build, so PDF generation adds no browser runtime cost.

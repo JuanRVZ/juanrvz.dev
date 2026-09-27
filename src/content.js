@@ -11,10 +11,10 @@ export const profile = {
   ],
   location: "Seville, Spain",
   email: "juan@juanrvz.dev",
-  linkedin:
-    "https://www.linkedin.com/in/juan-ramon-vaz-leon/",
+  phone: "+34 652 263 988",
+  linkedin: "https://www.linkedin.com/in/juan-ramon-vaz-leon/",
   github: "https://github.com/JuanRVZ",
-  cv: "",
+  cv: "/cv/juan-ramon-vaz-leon-en.pdf",
 };
 // Employment and education verified against the supplied LinkedIn profile PDF.
 export const experience = [
@@ -175,4 +175,22 @@ export const education = [
     date: "2014 – 2016",
     url: "",
   },
+];
+
+// Additional history and languages from the supplied LinkedIn export.
+export const additionalExperience = [
+  {
+    company: "ServiSecuritas",
+    role: "Services Assistant",
+    period: "Jan 2018 - Sep 2018",
+  },
+  {
+    company: "Comercial Eléctrica Onubense S.A. (Ceosa)",
+    role: "Online Sales",
+    period: "Mar 2017 - Jun 2017",
+  },
+];
+export const languages = [
+  { name: "Spanish", level: "Native" },
+  { name: "English", level: "B2 - Professional working proficiency" },
 ];
