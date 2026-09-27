@@ -102,7 +102,7 @@ export default function App() {
     }
   }
   const themeName = t(
-    { system: "System", light: "Light", dark: "Dark" }[theme],
+    { light: "Light", dark: "Dark" }[theme],
   );
   return (
     <>
@@ -157,7 +157,7 @@ export default function App() {
               title={`${t("Theme")}: ${themeName}`}
             >
               <span aria-hidden="true">
-                {theme === "system" ? "◐" : theme === "light" ? "☼" : "☾"}
+                {theme === "light" ? "☼" : "☾"}
               </span>
               <span>{themeName}</span>
             </button>

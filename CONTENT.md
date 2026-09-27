@@ -24,7 +24,7 @@ LinkedIn and relevant technical employment / education were added from the user-
 
 English remains the default language. Spanish translations for content and interface copy live in `src/i18n.js`; update the corresponding translation when changing English text. Product names and official SAP credential names remain unchanged.
 
-The header toggles EN/ES and cycles System → Light → Dark. The system setting follows `prefers-color-scheme` live; explicit choices and language are saved locally when browser storage is available. `src/usePreferences.js` keeps the first React render consistent with the prerendered HTML. A small head script applies a stored color preference before paint.
+The header toggles EN/ES and Light/Dark. Each page load follows `prefers-color-scheme`; the button displays the resolved Light or Dark value. System changes are followed until the visitor manually toggles the theme in that page session. Only the language is stored locally. Theme overrides reset on reload, and older stored theme preferences are ignored. CSS applies the system palette before JavaScript runs.
 
 ## Automatically generated CV
 

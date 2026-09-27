@@ -1,16 +1,26 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // Stable first render matches prerendered HTML; preferences apply after hydration.
 export default function usePreferences() {
   const [language, setLanguage] = useState("en");
-  const [theme, setTheme] = useState("system");
+  const [theme, setTheme] = useState("light");
+  const manualTheme = useRef(false);
+  useEffect(() => {
+    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+    const syncSystemTheme = () => {
+      if (!manualTheme.current) {
+        setTheme(systemTheme.matches ? "dark" : "light");
+        delete document.documentElement.dataset.theme;
+      }
+    };
+    syncSystemTheme();
+    systemTheme.addEventListener("change", syncSystemTheme);
+    return () => systemTheme.removeEventListener("change", syncSystemTheme);
+  }, []);
   useEffect(() => {
     try {
       const savedLanguage = localStorage.getItem("portfolio-language");
-      const savedTheme = localStorage.getItem("portfolio-theme");
       if (["en", "es"].includes(savedLanguage)) setLanguage(savedLanguage);
-      if (["system", "light", "dark"].includes(savedTheme))
-        setTheme(savedTheme);
     } catch {
       /* Storage can be unavailable in private browsing. */
     }
@@ -49,12 +59,8 @@ export default function usePreferences() {
     setLanguage(next);
   }
   function changeTheme() {
-    const next = { system: "light", light: "dark", dark: "system" }[theme];
-    try {
-      localStorage.setItem("portfolio-theme", next);
-    } catch {
-      /* No storage. */
-    }
+    const next = theme === "light" ? "dark" : "light";
+    manualTheme.current = true;
     document.documentElement.dataset.theme = next;
     setTheme(next);
   }
