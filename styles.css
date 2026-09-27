@@ -190,85 +190,6 @@ a:hover {
 .button-secondary:hover {
   border-color: var(--muted);
 }
-.hero-art {
-  position: relative;
-  align-self: center;
-  aspect-ratio: 1;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  background:
-    radial-gradient(ellipse at center, var(--art-glow), transparent 68%),
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size:
-    auto,
-    32px 32px,
-    32px 32px;
-}
-.art-top,
-.art-bottom {
-  position: absolute;
-  left: 22px;
-  right: 22px;
-  display: flex;
-  justify-content: space-between;
-  font-family: ui-monospace, monospace;
-  font-size: 8px;
-  letter-spacing: 0.12em;
-  color: var(--muted);
-}
-.art-top {
-  top: 22px;
-}
-.art-bottom {
-  bottom: 22px;
-  align-items: end;
-}
-.art-bottom .accent {
-  font-size: 26px;
-}
-.orbit {
-  position: absolute;
-  inset: 17%;
-  border: 1px solid var(--orbit-line);
-  border-radius: 50%;
-}
-.orbit-two {
-  inset: 26% 8%;
-  transform: rotate(-40deg);
-}
-.orbit-three {
-  inset: 8% 26%;
-  transform: rotate(-40deg);
-}
-.art-monogram {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: clamp(75px, 10vw, 136px);
-  font-weight: 600;
-  letter-spacing: -0.1em;
-  color: var(--text);
-}
-.art-monogram span {
-  color: var(--accent);
-}
-.coordinate {
-  position: absolute;
-  color: var(--accent);
-  font-family: monospace;
-  font-size: 20px;
-}
-.coordinate-one {
-  left: 16%;
-  top: 22%;
-}
-.coordinate-two {
-  right: 16%;
-  bottom: 22%;
-}
 .hero-bottom {
   grid-column: 1/-1;
   display: flex;
@@ -562,9 +483,6 @@ a:hover {
   }
   .hero-role {
     font-size: 23px;
-  }
-  .hero-art {
-    display: none;
   }
   .hero-bottom {
     margin-top: 34px;
@@ -933,4 +851,19 @@ a:hover {
 
 .location-map image {
   opacity: var(--map-opacity);
+}
+
+.hero-portrait {
+  align-self: center;
+  justify-self: center;
+  width: min(100%, 360px);
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+.hero-portrait img { display: block; width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 760px) {
+  .hero-portrait { grid-row: 1; justify-self: start; width: 144px; }
 }

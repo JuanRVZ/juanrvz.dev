@@ -235,27 +235,16 @@ export default function App() {
               )}
             </div>
           </div>
-          <div className="hero-art" aria-hidden="true">
-            <div className="art-top">
-              <span>JRV / {t("PERSONAL SPACE")}</span>
-              <span>01 — ∞</span>
-            </div>
-            <div className="orbit orbit-one" />
-            <div className="orbit orbit-two" />
-            <div className="orbit orbit-three" />
-            <div className="art-monogram">
-              jrv<span>.</span>
-            </div>
-            <span className="coordinate coordinate-one">+</span>
-            <span className="coordinate coordinate-two">+</span>
-            <div className="art-bottom">
-              <span>
-                SOFTWARE
-                <br />& {t("PERSPECTIVE")}
-              </span>
-              <span className="accent">↗</span>
-            </div>
-          </div>
+          <figure className="hero-portrait">
+            <img
+              src="/juan-ramon-vaz-leon.jpg"
+              alt={profile.name}
+              width="306"
+              height="306"
+              fetchPriority="high"
+              decoding="async"
+            />
+          </figure>
           <div className="hero-proof">
             <a href="#certificaciones">
               <span className="eyebrow accent">{t("SAP CERTIFIED")}</span>
