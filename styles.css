@@ -873,3 +873,23 @@ a:hover {
 @media (max-width: 760px) {
   .hero-portrait { grid-row: 1; justify-self: start; width: 144px; }
 }
+
+/* Recruiter-facing details reuse the existing palette and layout. */
+.hero-role { color: var(--accent); font-weight: 500; line-height: 1.35; }
+.availability { display: flex; align-items: center; gap: 9px; margin-top: 20px; font-size: 12px; line-height: 1.6; color: var(--muted); }
+.status-dot { flex-shrink: 0; }
+.hero-actions .text-link { min-height: 44px; }
+.hero-proof { padding: 18px 22px; border-left: 2px solid var(--accent); background: var(--surface); }
+.hero-proof > a > span:last-child { line-height: 1.7; }
+.professional-languages { margin-top: 28px; }
+.professional-languages dl { display: flex; flex-wrap: wrap; gap: 16px 32px; margin-top: 12px; font-size: 13px; line-height: 1.8; }
+.professional-languages dd { color: var(--muted); }
+.project-details { margin: 0; font-size: 14px; }
+.project-screenshot { display: block; width: 100%; height: auto; border-radius: 3px; border: 1px solid var(--line); }
+.certificate-records .record { border: 1px solid var(--line); border-left: 2px solid var(--accent); padding: 22px; border-radius: 4px; background: var(--surface); }
+.location-card-caption { flex-wrap: wrap; }
+.location-card-caption > .muted { font-size: 12px; }
+@media (min-width: 761px) and (max-width: 900px) {
+  .hero { grid-template-columns: 1.7fr 1fr; }
+  .hero h1 { font-size: 58px; }
+}

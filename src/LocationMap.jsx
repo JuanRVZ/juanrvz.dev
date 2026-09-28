@@ -1,4 +1,4 @@
-export default function LocationMap({ location, t }) {
+export default function LocationMap({ location, workPreference, t }) {
   return (
     <figure
       className="location-card"
@@ -6,13 +6,12 @@ export default function LocationMap({ location, t }) {
     >
       <div className="location-card-heading">
         <span className="eyebrow">{t("BASED IN")}</span>
-        <span className="eyebrow">37.39° N / 5.98° W</span>
       </div>
       <svg
         className="location-map"
         viewBox="310 30 150 96"
         role="img"
-        aria-label={t("Map of Europe with Seville marked")}
+        aria-label={t("Map of Europe with Andalusia marked")}
       >
         <image href="/world-map.svg" width="720" height="310" />
         <circle
@@ -46,7 +45,7 @@ export default function LocationMap({ location, t }) {
           fontSize="3"
           fontFamily="ui-monospace, monospace"
         >
-          {t("SEVILLE")}
+          {t("ANDALUSIA")}
         </text>
       </svg>
       <figcaption className="location-card-caption">
@@ -54,6 +53,7 @@ export default function LocationMap({ location, t }) {
           <span className="status-dot" aria-hidden="true" />
           {location}
         </span>
+        <span className="muted">{workPreference}</span>
       </figcaption>
     </figure>
   );

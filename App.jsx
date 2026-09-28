@@ -52,18 +52,19 @@ function Tags({ items, label }) {
     </ul>
   );
 }
-function Credentials({ items, t }) {
+function Credentials({ items, t, certificates = false }) {
   return (
-    <div className="records">
+    <div className={certificates ? "records certificate-records" : "records"}>
       {items.map((item) => (
         <article className="record" key={`${item.title}-${item.organization}`}>
+          {certificates && <p className="eyebrow accent">SAP CERTIFIED ASSOCIATE</p>}
           {item.date && <p className="eyebrow">{item.date}</p>}
           <h3>{item.title}</h3>
           <p>{item.organization}</p>
           {item.description && <p>{item.description}</p>}
           {item.url && (
             <Link href={item.url} className="text-link">
-              {t("View credential")}
+              {t("Verify credential")}
             </Link>
           )}
         </article>
@@ -81,6 +82,7 @@ export default function App() {
     technologies,
     certifications,
     education,
+    languages,
   } = localizedContent[language];
   const navigation = [
     ["sobre-mi", "About"],
@@ -196,7 +198,7 @@ export default function App() {
           <div className="hero-copy">
             <p className="eyebrow hero-label">
               <span className="status-dot" />
-              {t("Software Developer").toUpperCase()}{" "}
+              {t("SAP DEVELOPMENT")}{" "}
               <span className="muted">/ JUANRVZ.DEV</span>
             </p>
             <h1 id="hero-title">
@@ -209,9 +211,13 @@ export default function App() {
             {profile.summary && (
               <p className="hero-summary">{profile.summary}</p>
             )}
+            <p className="availability">
+              <span className="status-dot" aria-hidden="true" />
+              {profile.availability}
+            </p>
             <div className="hero-actions">
-              <a className="button button-primary" href="#proyectos">
-                {t("Explore my work")}
+              <a className="button button-primary" href="#contacto">
+                {t("Contact")}
                 <Arrow />
               </a>
               {profile.linkedin && (
@@ -219,6 +225,9 @@ export default function App() {
                   LinkedIn
                   <Arrow diagonal />
                 </a>
+              )}
+              {profile.github && (
+                <Link className="text-link" href={profile.github}>GitHub</Link>
               )}
               {profile.cv ? (
                 <Link className="text-link" href={profile.cv} download>
@@ -249,7 +258,7 @@ export default function App() {
             <a href="#certificaciones">
               <span className="eyebrow accent">{t("SAP CERTIFIED")}</span>
               <span>
-                ABAP Cloud · BTP Administrator
+                <span>SAP Certified Associate<br />ABAP Cloud · BTP Administrator</span>
                 <Arrow diagonal />
               </span>
             </a>
@@ -270,13 +279,18 @@ export default function App() {
             </p>
           ))}
           {profile.location && (
-            <LocationMap location={profile.location} t={t} />
+            <LocationMap location={profile.location} workPreference={profile.workPreference} t={t} />
           )}
-          <div className="focus-note">
-            <span className="eyebrow accent">
-              {t("CURRENT LEARNING FOCUS")}
-            </span>
-            <p>{t("Python & AI Engineering")}</p>
+          <div className="professional-languages">
+            <h3 className="eyebrow accent">{t("Languages")}</h3>
+            <dl>
+              {languages.map((item) => (
+                <div key={item.name}>
+                  <dt>{item.name}</dt>
+                  <dd>{item.level}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
           {profile.linkedin && (
             <Link href={profile.linkedin} className="text-link mt-6">
@@ -316,7 +330,7 @@ export default function App() {
         >
           <p className="work-intro">
             {t(
-              "A selection of training applications and programming practice. These are learning projects, with individual repositories to follow.",
+              "SAP training projects and Python practice, with the implementation concepts used in each application.",
             )}
           </p>
           <div className="project-grid">
@@ -327,12 +341,18 @@ export default function App() {
                 </span>
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
-                {project.contribution && <p>{project.contribution}</p>}
+                {project.details?.length > 0 && <ul className="achievement-list project-details">
+                  {project.details.map((detail) => <li key={detail}>{detail}</li>)}
+                </ul>}
+                {project.screenshot?.src && <img className="project-screenshot"
+                  src={project.screenshot.src} alt={project.screenshot.alt}
+                  width={project.screenshot.width} height={project.screenshot.height}
+                  loading="lazy" decoding="async" />}
                 <Tags
                   items={project.technologies || []}
                   label={t("Technologies")}
                 />
-                <div className="flex flex-wrap gap-6">
+                {(project.url || project.repository) && <div className="flex flex-wrap gap-6">
                   {project.url && (
                     <Link className="text-link" href={project.url}>
                       {t("Live project")}
@@ -340,15 +360,10 @@ export default function App() {
                   )}
                   {project.repository && (
                     <Link className="text-link" href={project.repository}>
-                      {t("Source code")}
+                      GitHub
                     </Link>
                   )}
-                  {!project.url && !project.repository && (
-                    <p className="repository-note">
-                      {t("Repository link coming soon")}
-                    </p>
-                  )}
-                </div>
+                </div>}
               </article>
             ))}
           </div>
@@ -372,7 +387,7 @@ export default function App() {
           number={experience.length ? "05" : "04"}
           title={t("Certifications")}
         >
-          <Credentials items={certifications} t={t} />
+          <Credentials items={certifications} t={t} certificates />
         </Section>
         <Section
           id="formacion"
@@ -392,15 +407,10 @@ export default function App() {
           <div className="contact-layout">
             <div>
               <h2 id="contact-title">
-                {t("Good conversations")}
+                {t("Interested in working together?")}
                 <br />
-                {t("start with")} <span>{t("hello.")}</span>
+                <span>{t("Get in touch.")}</span>
               </h2>
-              <p>
-                {t("Have a role or a project in mind?")}
-                <br />
-                {t("Let’s talk about how I could contribute.")}
-              </p>
             </div>
             <div className="contact-links">
               {profile.email && (

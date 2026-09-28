@@ -28,12 +28,12 @@ export default function usePreferences() {
   useEffect(() => {
     document.documentElement.lang = language;
     const role =
-      language === "es" ? "Desarrollador de software" : "Software Developer";
+      language === "es" ? "Desarrollador SAP ABAP Cloud & BTP" : "SAP ABAP Cloud & BTP Developer";
     document.title = `Juan Ramón Vaz León | ${role}`;
     const description =
       language === "es"
-        ? "Juan Ramón Vaz León — Desarrollador de software especializado en SAP ABAP Cloud, SAP BTP y backend. Experiencia, proyectos y certificaciones."
-        : "Juan Ramón Vaz León — Software Developer specializing in SAP ABAP Cloud, SAP BTP and backend development. Experience, projects and certifications.";
+        ? "Desarrollador SAP ABAP Cloud & BTP con experiencia backend en PHP y Laravel, administración de sistemas e integraciones de API."
+        : "SAP ABAP Cloud & BTP Developer with backend experience in PHP and Laravel, systems administration and API integrations.";
     for (const selector of [
       'meta[name="description"]',
       'meta[property="og:description"]',

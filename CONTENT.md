@@ -2,9 +2,9 @@
 
 Edit `src/content.js`. Use confirmed facts only. Empty optional URLs never create links.
 
-- `profile`: name, role, headline, summary, about (paragraph array), location, email, phone, github, linkedin, cv.
+- `profile`: name, role, headline, summary, availability, workPreference, about (paragraph array), location, email, phone, github, linkedin, cv.
 - `experience`: `{ company, role, period, description, achievements: [] }`. The section and navigation entry stay hidden until this array contains entries.
-- `projects`: `{ title, type, description, contribution?, technologies: [], url?, repository? }`. Current titles describe training work, not named products. Add repository URLs only after confirming them.
+- `projects`: `{ title, type, description, details: [], technologies: [], url?, repository?, screenshot: { src, alt, width, height } }`. Current projects are explicitly identified as training work. Empty repository URLs hide the GitHub button. Empty screenshot sources render no image; supply a local asset path, descriptive alt text and its actual dimensions. Add repository URLs only after confirming them.
 - `technologies`: `{ category, items: [] }`. No percentages or proficiency claims.
 - `certifications` / `education`: `{ title, organization, date?, description?, url? }`. A credential link appears only when `url` exists.
 
@@ -34,6 +34,6 @@ The header toggles EN/ES and Light/Dark. Each page load follows `prefers-color-s
 - Source: `src/content.js` and translations in `src/i18n.js`.
 - Output: `public/cv/juan-ramon-vaz-leon-en.pdf` and `public/cv/juan-ramon-vaz-leon-es.pdf`, ignored by Git and recreated in Cloudflare builds.
 - The CV button downloads the current language. The contact section and PDFs include the explicitly supplied phone number.
-- `additionalExperience` and `languages` supplement the PDF with information from the supplied LinkedIn export, without lengthening the main website.
+- `additionalExperience` and `languages` supplement the PDF with information from the supplied LinkedIn export, with languages also displayed in the About section.
 
 The PDFs use one column, selectable text, standard headings, simple fonts and contact details in the document body. These address common parsing problems described by [Greenhouse](https://support.greenhouse.io/hc/en-us/articles/200989175-Unsuccessful-resume-parse); compatibility with every ATS cannot be guaranteed. Never represent a training project as a production deployment. Recheck text extraction and page breaks after substantial content changes.
