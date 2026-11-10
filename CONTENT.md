@@ -14,7 +14,9 @@ Edit `src/content.js`. Use confirmed facts only. Empty optional URLs never creat
 - Certification verification URLs and dates, if available.
 - Confirm that `juan@juanrvz.dev` receives mail. The site links to the address provided; it does not provision a mailbox or send messages.
 
-The website is primarily English. Identity and SEO metadata are in `index.html`; keep these aligned with profile changes. The social card is `public/og-image.png`.
+The About statement that lights up on scroll is `profile.summary`. The three figures below the biography are derived, not typed: years between the earliest and latest month in `experience[].period`, the number of certifications and the number of experience entries. The four layers of the SAP stack scene are defined in `App.jsx` (`stackLayers`) and restate details of the training projects; keep them consistent with `projects`.
+
+The website is primarily English. Identity and SEO metadata are in `index.html`; keep these aligned with profile changes. The social card is `public/og-image.png` (1200 × 630, dark palette with the orange accent); redraw it if the name, role or palette changes.
 
 ## Confirmed profile update
 

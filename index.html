@@ -7,7 +7,8 @@
       name="description"
       content="SAP ABAP Cloud &amp; BTP Developer with backend experience in PHP and Laravel, systems administration and API integrations."
     />
-    <meta name="theme-color" content="#101412" />
+    <meta name="theme-color" content="#f4f4f1" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
     <link rel="canonical" href="https://juanrvz.dev/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" />
@@ -39,6 +40,17 @@
       content="SAP ABAP Cloud &amp; BTP Developer with backend experience in PHP and Laravel, systems administration and API integrations."
     />
     <meta name="twitter:image" content="https://juanrvz.dev/og-image.png" />
+    <script>
+      // "js" swaps the photo for its canvas rendering; "motion" enables the scroll-driven
+      // layout unless the visitor prefers reduced motion. Both are withdrawn if the app
+      // bundle never starts.
+      document.documentElement.classList.add("js");
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches)
+        document.documentElement.classList.add("motion");
+      setTimeout(function () {
+        if (!window.__scrollReady) document.documentElement.classList.remove("js", "motion");
+      }, 5000);
+    </script>
     <title>Juan Ramón Vaz León | SAP ABAP Cloud &amp; BTP Developer</title>
     <script type="application/ld+json">
       {
